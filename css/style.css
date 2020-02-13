@@ -247,7 +247,25 @@ html, body, #fullpage{
   border-right: 1px solid #fff;
   display: none;
 }
+//hitokoto
 
+.hitokoto-title {
+  text-align: center;
+  font-size: 13px;
+}
+
+#hitokoto {
+  text-align: left;
+  font-family: "KaiTi";
+  color:#9C661F;
+  font-size: 20px;
+}
+
+#hitofrom {
+  float: right;
+  font-family: "Microsoft YaHei";
+  font-size: 13px;
+}
 .mobile-nav-link {
   display: block;
   text-align: center;
@@ -777,13 +795,5 @@ html, body, #fullpage{
   #article-nav {
     flex-direction: column;
   }
-  #hitokoto{
-    border-left: 5px solid #2f889a;
-    border-right: 5px solid #2f889a;
-    background-color: #ebebeb;
-    padding: 10px;text-align: center;
-    color: #095AD4;
-    margin: 5px 0 5px 0;
-}
 
 }

@@ -172,8 +172,37 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">一言</h3>
     <div class="widget">
-	<script type="text/javascript" src="https://v1.hitokoto.cn/?c=f&encode=text"></script>
-<div id="hitokoto"><script>hitokoto()</script></div>
+	<!-- none-select-br -->
+
+<p></p>
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+	<i class="fa fa-paragraph"></i>
+	<b></b>
+</div>
+
+<div id="hitokoto">:D 获取中...</div>
+<i id="hitofrom">:D 获取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn/?c=a')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——「" + data.from + '」\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
 
     </div>
   </div>
