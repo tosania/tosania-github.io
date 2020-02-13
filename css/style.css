@@ -777,4 +777,13 @@ html, body, #fullpage{
   #article-nav {
     flex-direction: column;
   }
+  #hitokoto{
+    border-left: 5px solid #2f889a;
+    border-right: 5px solid #2f889a;
+    background-color: #ebebeb;
+    padding: 10px;text-align: center;
+    color: #095AD4;
+    margin: 5px 0 5px 0;
+}
+
 }
