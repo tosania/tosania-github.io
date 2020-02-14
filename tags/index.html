@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <meta charset="utf-8">
   
 
@@ -38,6 +40,7 @@
 <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
 
 <body>
+<script src="/live2d-widget-master/autoload.js"></script>
   <div id="fullpage" class="mobile-nav-right">
     
       <div id="wrapper" style="background-image: url(/images/back.jpg)" title="gyf天下第一美少女！！！">
@@ -170,38 +173,18 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">一言</h3>
     <div class="widget">
-	<!-- none-select-br -->
-
-<p></p>
-
-<!-- hitokoto -->
-
-<div class="hitokoto-title">
-	<i class="fa fa-paragraph"></i>
-	<b></b>
-</div>
-
-<div id="hitokoto">:D 获取中...</div>
-<i id="hitofrom">:D 获取中...</i>
-
-<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
 <script>
-  fetch('https://v1.hitokoto.cn/?c=a')
-    .then(function (res){
-      return res.json();
-    })
-    .then(function (data) {
-      var hitokoto = document.getElementById('hitokoto');
-      hitokoto.innerText = '\xa0\xa0\xa0\xa0' + data.hitokoto;
-      var hitofrom = document.getElementById('hitofrom');
-      hitofrom.innerText = "——「" + data.from + '」\xa0'; 
-    })
-    .catch(function (err) {
-      console.error(err);
-    })
-</script>
-
+          $.get('https://sslapi.hitokoto.cn/?c=a', function (data) {
+            if (typeof data === 'string') data = JSON.parse(data);
+            $('#hitokoto-loader').removeClass('active');
+            $('#hitokoto-content').css('display', '').text(data.hitokoto);
+            if (data.from) {
+              $('#hitokoto-from').css('display', '').text('——「' + data.from + '」');
+            }
+          });
+          </script>
+<div style="font-family: KaiTi; font-size: 21px; line-height: 1.5em;color: #9C661F;" id="hitokoto-content"></div>
+<div style="text-align: right; margin-top: 15px; font-size: 15px; color: rgb(102, 102, 102);" id="hitokoto-from"></div>
     </div>
   </div>
 
@@ -274,6 +257,7 @@ gitment.render('gitmentContainer')
 </aside>
       </div>
       <footer id="footer">
+<script src="https://www.example.com/path/to/live2d-widget/autoload.js"></script>
   <div class="foot-box global-width">
     &copy; 2020 scy‘s blog &nbsp;&nbsp;
     驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
@@ -329,5 +313,5 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
