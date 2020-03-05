@@ -186,7 +186,7 @@
     <h3 class="widget-title">一言 ヒトコト</h3>
     <div class="widget">
 <script>
-          $.get('https://sslapi.hitokoto.cn/?c=a', function (data) {
+          $.get('https://v1.hitokoto.cn/?c=b', function (data) {
             if (typeof data === 'string') data = JSON.parse(data);
             $('#hitokoto-loader').removeClass('active');
             $('#hitokoto-content').css('display', '').text(data.hitokoto);
